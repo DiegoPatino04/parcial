@@ -15,18 +15,14 @@ import org.springframework.web.bind.annotation.RestController;
 import co.edu.uptc.animals_rest.models.Animal;
 import co.edu.uptc.animals_rest.services.AnimalService;
 
-
-
-
 @RestController
 @RequestMapping("/animal")
 public class AnimalController {
 
- private static final Logger logger = LoggerFactory.getLogger(AnimalController.class);
+    private static final Logger logger = LoggerFactory.getLogger(AnimalController.class);
 
-   @Autowired
+    @Autowired
     private AnimalService animalService;
-
 
     @GetMapping("/all")
     public List<Animal> getAnimalAll() throws IOException {
@@ -41,9 +37,9 @@ public class AnimalController {
     }
 
     @GetMapping("/numberByCategory")
-    public Map<String, Integer>  getAnimalCount() throws IOException {
+    public Map<String, Integer> getAnimalCount() throws IOException {
         logger.info("get amount category");
         return animalService.getAnimalCount();
     }
-    
+
 }
